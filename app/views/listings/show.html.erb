@@ -1,0 +1,24 @@
+Show page<br/>
+
+Title : <%= @listing.title %><br/>
+Description: <%= @listing.description %><br/>
+Country: <%= @listing.country %><br/>
+
+<br/>
+Amenities: 
+<br/> 
+<% @listing.amenities.each do |a| %> 
+<li><%= a %></li>
+
+<% end %>
+
+
+Listing Status: <%= @listing.verified %><br/>
+
+<% if current_user.moderator? %>
+  <% if !@listing.verified %>
+    <%= link_to 'verify this listing', verify_path(@listing), method: :patch %>
+  <% else %>
+    <%= link_to 'Unverify', verify_path(@listing), method: :patch %>
+  <% end %>
+<% end %>

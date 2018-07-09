@@ -1,0 +1,24 @@
+Create New Listing
+
+<%= form_with model: @listing do |form| %>
+  <%= form.label :title %> : 
+  <%= form.text_field :title, autocomplete: :off %><br/>
+
+  <%= form.label :description %> : 
+  <%= form.text_field :description, autocomplete: :off %><br/>
+
+  <%= form.label :country %> : 
+  <%= form.text_field :country, autocomplete: :off %><br/>
+
+  <%= form.label :number_of_guests %> : 
+  <%= form.text_field :num_of_guests, autocomplete: :off %><br/>
+
+  <%= form.label :amenities %> :<br/>
+  
+  Wifi <%= form.check_box :amenities, {multiple: true}, "wifi", nil %><br/>
+  BathTub <%= form.check_box :amenities, {multiple: true}, "bathtub", nil %><br/>
+  Parking <%= form.check_box :amenities, {multiple: true}, "parking", nil %><br/>
+
+  <%= form.submit %>
+
+<% end %>
